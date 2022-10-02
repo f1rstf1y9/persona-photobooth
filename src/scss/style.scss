@@ -1,31 +1,66 @@
 @import "reset";
 
+body {
+  background: url('../src/img/background-img.svg');
+  object-fit: cover;
+  width: 100vw;
+  height: 100vh;
+}
 
 /* 촬영한 사진 담길 div */
-.windows > div {
-  position: fixed;
-  // top: 30px;
-  // left: 30px;
-  border: 1.5px solid #000;
-  width: 320px;
-  height: 240px;
-  .window-top {
-    width: 320px;
-    height: 25px;
-    position: absolute;
-    top: 0;
-    left: 0;
-    border-bottom: 1.5px solid #000;
-    // background: rgb(255, 229, 111);
-    box-sizing: border-box;
-    padding: 10px;
+.windows {
+  .sub-win-0 {
+    .window-top {
+      border-bottom: 1px solid #CDACF9;
+      background: #6464DE;
+    }
+    .window-btm {
+      border: 5px solid #CDACF9;
+      background: #CDACF9;
+    }
   }
-  img {
-    width: 320px;
+  .sub-win-1 {
+    .window-top {
+      border-bottom: 1px solid #F7CEE8;
+      background: #EF9FC3;
+    }
+    .window-btm {
+      border: 5px solid #F7CEE8;
+      background: #F7CEE8;
+    }
+  }
+  & > div {
+    position: fixed;
     height: 240px;
-    object-fit: cover;
+    .window-top {
+      width: 330px;
+      height: 30px;
+      box-sizing: border-box;
+      padding: 4px 5px 0 0;  
+      img {
+        height: 18px;
+        float: right;
+      }
+    }
+    .window-btm { 
+      position: relative;
+      width: 320px;
+
+      img:first-child {
+        width: 320px;
+        height: 240px;
+        object-fit: cover;
+      }
+      img:last-child {
+        position: absolute;
+        height: 244px;
+        top: 0;
+        right: 0;
+      }
+    }
   }
-}
+} 
+
 
 /* 메인 카메라 창 */
 .main-cam {
@@ -35,21 +70,35 @@
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 5;
-  border: 2px solid #000;
+  border: 10px solid #CDACF9;
+  border-top: none;
+  background: #CDACF9;
   #video {
     position: relative;
   }
   .window {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     z-index: 10;
     width: 640px;
-    height: 40px;
+    height: 55px;
     position: absolute;
     top: 0;
     left: 0;
-    border-bottom: 2px solid #000;
-    background: rgb(255, 203, 203);
+    background: #CDACF9;
     box-sizing: border-box;
-    padding: 10px;
+    padding: 7px 0 5px 0;
+    div {
+      display: flex;
+      justify-content: space-between;
+    }
+    img {
+      height: 20px;
+    }
+    >img {
+      align-self: start;
+    }
   }
   .timer {
     display: none;
@@ -74,29 +123,7 @@
   transform: translate(-50%, -50%);
   z-index: 5;
 }
-
-/* 이모지 선택 창 */
-.emoji-modal {
-  display: none;
-  transition: .3s;
-  position: fixed;
-  top: 50%;
-  left: 60%;
-  z-index: 999;
-  width: 300px;
-  background-color: rgba(250, 235, 215, 0.5);
-  padding: 20px;
-  border-radius: 10px;
-  .container {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    align-items:center;
-    justify-items: center;
-    >div {
-      padding: 10px 10px;
-      margin: 5px 0 5px 0;
-      font-size: 20px;
-      border-radius: 5px;
-    }
-  }
+.emoji-picker {
+  bottom: calc(100vh - 1140px);
+  left: 60vw;
 }

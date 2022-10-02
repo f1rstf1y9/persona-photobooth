@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- emoji picker -->
+  <script type="importmap">
+    {
+      "imports": {
+          "picmo": "https://unpkg.com/picmo@5.4.2/dist/index.js",
+          "@picmo/popup-picker": "https://unpkg.com/@picmo/popup-picker@5.4.0/dist/index.js"
+      }
+    }
+  </script>
+  <script type="module">
+    import { createPicker } from "picmo";
+    let selected_emoji = [];
+    const rootElement = document.querySelector('#picker-container');
+
+    // Create the picker
+    const picker = createPicker({ rootElement });
+
+    // The picker emits an event when an emoji is selected. Do with it as you will!
+    picker.addEventListener('emoji:select', event => {
+      // console.log('Emoji selected:', event.emoji);
+      selected_emoji += event.emoji;
+      console.log(selected_emoji);
+    });
+
+  </script>
+
+  <link rel="stylesheet" href="css/emoji.css">
+  
+  <title>Document</title>
+</head>
+<body>
+  <div class="emoji-picker">
+    <div id="emoji-header">
+      <div>
+        <img src="img/emoji-header-icon_1.svg" alt="">
+        <img src="img/emoji-header-icon_2.svg" alt="">
+        <img src="img/emoji-header-icon_3.svg" alt="">
+      </div>
+    </div>
+    <div id="picker-container">
+    </div>
+  </div>
+</body>
+</html>

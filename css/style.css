@@ -49,28 +49,60 @@ table {
   border-spacing: 0;
 }
 
+body {
+  background: url("../src/img/background-img.svg");
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 100vw;
+  height: 100vh;
+}
+
 /* 촬영한 사진 담길 div */
+.windows .sub-win-0 .window-top {
+  border-bottom: 1px solid #CDACF9;
+  background: #6464DE;
+}
+.windows .sub-win-0 .window-btm {
+  border: 5px solid #CDACF9;
+  background: #CDACF9;
+}
+.windows .sub-win-1 .window-top {
+  border-bottom: 1px solid #F7CEE8;
+  background: #EF9FC3;
+}
+.windows .sub-win-1 .window-btm {
+  border: 5px solid #F7CEE8;
+  background: #F7CEE8;
+}
 .windows > div {
   position: fixed;
-  border: 1.5px solid #000;
-  width: 320px;
   height: 240px;
 }
 .windows > div .window-top {
-  width: 320px;
-  height: 25px;
-  position: absolute;
-  top: 0;
-  left: 0;
-  border-bottom: 1.5px solid #000;
+  width: 330px;
+  height: 30px;
   box-sizing: border-box;
-  padding: 10px;
+  padding: 4px 5px 0 0;
 }
-.windows > div img {
+.windows > div .window-top img {
+  height: 18px;
+  float: right;
+}
+.windows > div .window-btm {
+  position: relative;
+  width: 320px;
+}
+.windows > div .window-btm img:first-child {
   width: 320px;
   height: 240px;
   -o-object-fit: cover;
      object-fit: cover;
+}
+.windows > div .window-btm img:last-child {
+  position: absolute;
+  height: 244px;
+  top: 0;
+  right: 0;
 }
 
 /* 메인 카메라 창 */
@@ -81,22 +113,36 @@ table {
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 5;
-  border: 2px solid #000;
+  border: 10px solid #CDACF9;
+  border-top: none;
+  background: #CDACF9;
 }
 .main-cam #video {
   position: relative;
 }
 .main-cam .window {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   z-index: 10;
   width: 640px;
-  height: 40px;
+  height: 55px;
   position: absolute;
   top: 0;
   left: 0;
-  border-bottom: 2px solid #000;
-  background: rgb(255, 203, 203);
+  background: #CDACF9;
   box-sizing: border-box;
-  padding: 10px;
+  padding: 7px 0 5px 0;
+}
+.main-cam .window div {
+  display: flex;
+  justify-content: space-between;
+}
+.main-cam .window img {
+  height: 20px;
+}
+.main-cam .window > img {
+  align-self: start;
 }
 .main-cam .timer {
   display: none;
@@ -122,28 +168,7 @@ table {
   z-index: 5;
 }
 
-/* 이모지 선택 창 */
-.emoji-modal {
-  display: none;
-  transition: 0.3s;
-  position: fixed;
-  top: 50%;
-  left: 60%;
-  z-index: 999;
-  width: 300px;
-  background-color: rgba(250, 235, 215, 0.5);
-  padding: 20px;
-  border-radius: 10px;
-}
-.emoji-modal .container {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  align-items: center;
-  justify-items: center;
-}
-.emoji-modal .container > div {
-  padding: 10px 10px;
-  margin: 5px 0 5px 0;
-  font-size: 20px;
-  border-radius: 5px;
+.emoji-picker {
+  bottom: calc(100vh - 1140px);
+  left: 60vw;
 }/*# sourceMappingURL=style.css.map */

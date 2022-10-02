@@ -1,0 +1,158 @@
+.emoji-picker {
+  display: none;
+  position: relative;
+  z-index: 99;
+}
+.emoji-picker #emoji-header, .emoji-picker #picker-container {
+  position: absolute;
+  left: 0;
+}
+.emoji-picker #emoji-header {
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  background: #F198BF;
+  height: 30px;
+  z-index: 100;
+  width: 18.4rem;
+  border-left: 10px solid #F198BF !important;
+  border-right: 10px solid #F198BF !important;
+}
+.emoji-picker #emoji-header > div {
+  display: flex;
+  gap: 4px;
+}
+.emoji-picker #emoji-header > div img {
+  width: 19px;
+}
+.emoji-picker #picker-container {
+  top: 30px;
+}
+.emoji-picker #picker-container .EmojiCategory_categoryName__zHcOq > svg,
+.emoji-picker #picker-container .Search_searchContainer__aJW7V,
+.emoji-picker #picker-container .CategoryTabs_categoryTab__fAgQT:nth-child(1),
+.emoji-picker #picker-container .EmojiCategory_emojiCategory__7G3mq:nth-child(1),
+.emoji-picker #picker-container .Preview_preview__HcFH6 {
+  display: none;
+}
+.emoji-picker #picker-container .EmojiPicker_picker__19Vln {
+  --border-radius: 0px !important;
+  --emoji-size: 1.5rem !important;
+  --emoji-size-multiplier: 1.6;
+  --emojis-per-row: 6 !important;
+  --picker-width: calc(var(--emojis-per-row) * var(--emoji-size) * var(--emoji-size-multiplier) + 4rem) !important;
+  --border-color: none;
+  --background-color: #fff;
+  --category-name-background-color: transparent;
+  --secondary-background-color: #F8CDE2;
+  --scrollbar-background-color: #FBE6F1;
+  --scrollbar-color: #F29EC4;
+  --category-name-text-color: #5C5B5B;
+  --accent-color: none;
+  --hover-background-color: #754E9A;
+  --focus-indicator-background-color: #fff;
+  --category-tab-active-background-color:#F8CDE2;
+  --category-tab-highlight-background-color: #F8CDE2;
+  gap: 0px;
+  border: 10px solid #F8CDE2 !important;
+  border-top: none !important;
+}
+.emoji-picker #picker-container .EmojiPicker_header__eDZPD {
+  padding-top: 0;
+}
+.emoji-picker #picker-container .EmojiArea_emojis__L4mMq::-webkit-scrollbar-thumb {
+  border-radius: 0;
+  background-clip: border-box;
+}
+.emoji-picker #picker-container .EmojiArea_emojis__L4mMq::-webkit-scrollbar-button:start:decrement, .emoji-picker #picker-container .EmojiArea_emojis__L4mMq::-webkit-scrollbar-button:end:increment {
+  display: block;
+  height: 18px;
+}
+.emoji-picker #picker-container .EmojiArea_emojis__L4mMq::-webkit-scrollbar-button:start:decrement {
+  background-image: url("../src/img/arrow-up.svg");
+}
+.emoji-picker #picker-container .EmojiArea_emojis__L4mMq::-webkit-scrollbar-button:end:increment {
+  background-image: url("../src/img/arrow-down.svg");
+}
+.emoji-picker #picker-container .CategoryTabs_categoryButtons__dJVp- {
+  padding: 0;
+}
+.emoji-picker #picker-container .CategoryTabs_categoryButton__AsR9b {
+  border: none;
+  border-radius: 0;
+  padding-bottom: 7px;
+  box-sizing: content-box;
+}
+.emoji-picker #picker-container .CategoryTabs_categoryButton__AsR9b > svg {
+  display: none;
+}
+.emoji-picker #picker-container .CategoryTabs_categoryTab__fAgQT:hover {
+  background: #F8CDE2;
+}
+.emoji-picker #picker-container .CategoryTabs_categoryTab__fAgQT > button {
+  background-size: 28px;
+  background-position: 2.3px;
+  background-repeat: no-repeat;
+  border-bottom: 3px solid #F8CDE2;
+}
+.emoji-picker #picker-container .CategoryTabs_categoryTab__fAgQT:nth-child(2) button {
+  background-image: url("../src/img/emoji-selector-icon_1.svg");
+}
+.emoji-picker #picker-container .CategoryTabs_categoryTab__fAgQT:nth-child(3) button {
+  background-image: url("../src/img/emoji-selector-icon_2.svg");
+}
+.emoji-picker #picker-container .CategoryTabs_categoryTab__fAgQT:nth-child(4) button {
+  background-image: url("../src/img/emoji-selector-icon_3.svg");
+}
+.emoji-picker #picker-container .CategoryTabs_categoryTab__fAgQT:nth-child(5) button {
+  background-image: url("../src/img/emoji-selector-icon_4.svg");
+}
+.emoji-picker #picker-container .CategoryTabs_categoryTab__fAgQT:nth-child(6) button {
+  background-image: url("../src/img/emoji-selector-icon_5.svg");
+}
+.emoji-picker #picker-container .CategoryTabs_categoryTab__fAgQT:nth-child(7) button {
+  background-image: url("../src/img/emoji-selector-icon_6.svg");
+}
+.emoji-picker #picker-container .CategoryTabs_categoryTab__fAgQT:nth-child(8) button {
+  background-image: url("../src/img/emoji-selector-icon_7.svg");
+}
+.emoji-picker #picker-container .CategoryTabs_categoryTab__fAgQT:nth-child(9) button {
+  background-image: url("../src/img/emoji-selector-icon_8.svg");
+}
+.emoji-picker #picker-container .CategoryTabs_categoryTab__fAgQT:nth-child(10) button {
+  background-image: url("../src/img/emoji-selector-icon_9.svg");
+}
+.emoji-picker #picker-container .CategoryTabs_categoryTabActive__691be > button {
+  background-size: 28px;
+  background-position: 2.3px;
+  background-repeat: no-repeat;
+  border-bottom: 3px solid #754E9A;
+}
+.emoji-picker #picker-container .CategoryTabs_categoryTabActive__691be:nth-child(2) button {
+  background-image: url("../src/img/emoji-selector-icon_1__active.svg");
+}
+.emoji-picker #picker-container .CategoryTabs_categoryTabActive__691be:nth-child(3) button {
+  background-image: url("../src/img/emoji-selector-icon_2__active.svg");
+}
+.emoji-picker #picker-container .CategoryTabs_categoryTabActive__691be:nth-child(4) button {
+  background-image: url("../src/img/emoji-selector-icon_3__active.svg");
+}
+.emoji-picker #picker-container .CategoryTabs_categoryTabActive__691be:nth-child(5) button {
+  background-image: url("../src/img/emoji-selector-icon_4__active.svg");
+}
+.emoji-picker #picker-container .CategoryTabs_categoryTabActive__691be:nth-child(6) button {
+  background-image: url("../src/img/emoji-selector-icon_5__active.svg");
+}
+.emoji-picker #picker-container .CategoryTabs_categoryTabActive__691be:nth-child(7) button {
+  background-image: url("../src/img/emoji-selector-icon_6__active.svg");
+}
+.emoji-picker #picker-container .CategoryTabs_categoryTabActive__691be:nth-child(8) button {
+  background-image: url("../src/img/emoji-selector-icon_7__active.svg");
+}
+.emoji-picker #picker-container .CategoryTabs_categoryTabActive__691be:nth-child(9) button {
+  background-image: url("../src/img/emoji-selector-icon_8__active.svg");
+}
+.emoji-picker #picker-container .CategoryTabs_categoryTabActive__691be:nth-child(10) button {
+  background-image: url("../src/img/emoji-selector-icon_9__active.svg");
+}/*# sourceMappingURL=emoji.css.map */

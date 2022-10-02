@@ -8,7 +8,35 @@
 
   <script src="https://unpkg.com/ml5@0.4.2/dist/ml5.min.js" type="text/javascript"></script>
   <script defer src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
-  <script defer src="src/index.js"></script>
+  
+
+  <!-- emoji picker -->
+  <link rel="stylesheet" href="css/emoji.css">
+  <script type="importmap">
+    {
+      "imports": {
+          "picmo": "https://unpkg.com/picmo@5.4.2/dist/index.js",
+          "@picmo/popup-picker": "https://unpkg.com/@picmo/popup-picker@5.4.0/dist/index.js"
+      }
+    }
+  </script>
+  <!-- <script type="module">
+    import { createPicker } from "picmo";
+
+    const rootElement = document.querySelector('#picker-container');
+
+    // Create the picker
+    const picker = createPicker({ rootElement });
+
+    // The picker emits an event when an emoji is selected. Do with it as you will!
+    // picker.addEventListener('emoji:select', event => {
+    //   // console.log('Emoji selected:', event.emoji);
+    //   selected_emoji += event.emoji;
+    //   console.log(selected_emoji);
+    // });
+  </script> -->
+
+  <script defer type="module" src="src/index.js"></script>
   
   <link rel="stylesheet" href="css/style.css">
 </head>
@@ -16,7 +44,11 @@
   <!-- 메인 창 -->
   <div class="main-cam">
     <div class="window">
-      Show Persona
+      <div>
+        <img src="src/img/main-cam_tab.svg" alt="">
+        <img src="src/img/main-cam_btn.svg" alt="">
+      </div>
+      <img src="src/img/main-cam_addr.svg">
     </div>
     <div class="timer"></div>
     <canvas id="canvas" width="640" height="480"></canvas> 
@@ -24,23 +56,15 @@
   </div>
 
   <!-- 이모티콘 선택창 -->
-  <div class="emoji-modal">
-    <div class="container">
-      <div class="btn-emoji">😀</div>
-      <div class="btn-emoji">😃</div>
-      <div class="btn-emoji">😇</div>
-      <div class="btn-emoji">😁</div>
-      <div class="btn-emoji">🥳</div>
-      <div class="btn-emoji">🥹</div>
-      <div class="btn-emoji">🥰</div>
-      <div class="btn-emoji">🤩</div>
-      <div class="btn-emoji">❤️</div>
-      <div class="btn-emoji">🧡</div>
-      <div class="btn-emoji">💛</div>
-      <div class="btn-emoji">💚</div>
-      <div class="btn-emoji">💙</div>
-      <div class="btn-emoji">💜</div>
-      <div class="btn-emoji">🖤</div>
+  <div class="emoji-picker">
+    <div id="emoji-header">
+      <div>
+        <img src="src/img/emoji-header-icon_1.svg" alt="">
+        <img src="src/img/emoji-header-icon_2.svg" alt="">
+        <img src="src/img/emoji-header-icon_3.svg" alt="">
+      </div>
+    </div>
+    <div id="picker-container">
     </div>
   </div>
 
