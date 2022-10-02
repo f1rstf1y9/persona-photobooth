@@ -2,7 +2,8 @@
 
 body {
   background: url('../src/img/background-img.svg');
-  object-fit: cover;
+  background-repeat: no-repeat;
+  background-size: cover;
   width: 100vw;
   height: 100vh;
 }
