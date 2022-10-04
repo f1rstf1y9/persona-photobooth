@@ -1,7 +1,14 @@
 @import "reset";
+@font-face {
+  font-family: 'DOSGothic';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_eight@1.0/DOSGothic.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
 
 body {
-  background: url('../src/img/background-img.svg');
+  background: url('../src/img/background-img3.svg');
   background-repeat: no-repeat;
   background-size: cover;
   width: 100vw;
@@ -11,6 +18,7 @@ body {
 /* 촬영한 사진 담길 div */
 .windows {
   .sub-win-0 {
+    box-shadow: 0px 0px 4px 2px rgba(0, 0, 0, 0.3);
     .window-top {
       border-bottom: 1px solid #CDACF9;
       background: #6464DE;
@@ -21,6 +29,7 @@ body {
     }
   }
   .sub-win-1 {
+    box-shadow: 0px 0px 4px 2px rgba(0, 0, 0, 0.3);
     .window-top {
       border-bottom: 1px solid #F7CEE8;
       background: #EF9FC3;
@@ -74,6 +83,7 @@ body {
   border: 10px solid #CDACF9;
   border-top: none;
   background: #CDACF9;
+  box-shadow: 0px 0px 4px 2px rgba(0, 0, 0, 0.3);
   #video {
     position: relative;
   }
@@ -107,11 +117,13 @@ body {
     position: absolute;
     top: 70px;
     left: 30px;
+    font-family: 'DOSGothic';
     font-size: 30px;
     text-align: center;
     line-height: 60px;
     color:white;
-    background: rgba(0, 0, 0, 0.5);
+    background: #cdacf97e;
+    color: #6464DE;
     border-radius: 50%;
     width: 60px;
     height: 60px;
@@ -125,6 +137,64 @@ body {
   z-index: 5;
 }
 .emoji-picker {
-  bottom: calc(100vh - 1140px);
+  top: 550px;
   left: 60vw;
+}
+
+
+/* 데코용 */
+.login {
+  z-index: 100;
+  position: fixed;
+  top: 52%;
+  left: 20%;
+  img {
+    width: 240px;
+    box-shadow: 0px 0px 4px 2px rgba(0, 0, 0, 0.3);
+  }
+}
+.loading {
+  z-index: 100;
+  position: fixed;
+  top: 320px;
+  left: 1160px;
+  div {
+    font-size: 35px;
+    letter-spacing: -0.20em;
+    margin-bottom: 5px;
+  }
+  img {
+    width: 240px;
+    box-shadow: 0px 0px 4px 2px rgba(0, 0, 0, 0.3);
+  }
+}
+.deco-1 {
+  position: fixed;
+  top: 33%;
+  left: 9%;
+  img {
+    width: 420px;
+    box-shadow: 0px 0px 4px 2px rgba(0, 0, 0, 0.3);
+  }
+}
+.deco-2 {
+  position: fixed;
+  top: 100px;
+  left: 1320px;
+  img {
+    width: 420px;
+    box-shadow: 0px 0px 4px 2px rgba(0, 0, 0, 0.3);
+  }
+}
+.error {
+  display: none;
+  z-index: 100;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  img {
+    width: 240px;
+    box-shadow: 0px 0px 4px 2px rgba(0, 0, 0, 0.3);
+  }
 }

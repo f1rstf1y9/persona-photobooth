@@ -81,60 +81,71 @@ function drawCameraIntoCanvas() {
       }
       photo.getContext('2d').drawImage(video, 0, 0, photo.width, photo.height);
       
-      current_pose = poses[0].pose;
-      poseX = (current_pose.leftEye.x + current_pose.rightEye.x)/2;
-      poseY = (current_pose.leftEye.y + current_pose.rightEye.y)/2;
-      w = dist(current_pose.leftEar.x,current_pose.leftEar.y,current_pose.rightEar.x,current_pose.rightEar.y);
-      let image_data_url = photo.toDataURL('image/jpeg');
-      $('.emoji-picker').fadeIn();
-      $('.photo-canvas').show();
+      if (poses.length == 0) {
+        $('.error').show();
+        //// 다음 촬영 준비
+        $('.timer').hide();
+        await _sleep(3000);
+        $('.main-cam').hide();
+        $('.error').hide();
+        resetScreen();
+        
+      } else {
+        current_pose = poses[0].pose;
+        poseX = (current_pose.leftEye.x + current_pose.rightEye.x)/2;
+        poseY = (current_pose.leftEye.y + current_pose.rightEye.y)/2;
+        w = dist(current_pose.leftEar.x,current_pose.leftEar.y,current_pose.rightEar.x,current_pose.rightEar.y);
+        let image_data_url = photo.toDataURL('image/jpeg');
+        $('.emoji-picker').fadeIn();
+        $('.photo-canvas').show();
 
-      // 이모티콘 추가 대기
-      for (let i = 8; i != 0; i--) {
-        await _sleep(1000);
-        timer.textContent = i;
-        timer.style.display = 'block';
+        // 이모티콘 추가 대기
+        for (let i = 10; i != 0; i--) {
+          await _sleep(1000);
+          timer.textContent = i;
+          timer.style.display = 'block';
+        }
+
+        var context = photo.getContext('2d');
+        var imageObj = new Image();
+        
+        // 이모티콘 붙이기
+        imageObj.onload = function() {
+          context.textAlign = "center";
+          context.drawImage(imageObj, 0, 0);
+          context.font = `${w*8/19}px Calibri`;
+          context.fillText(`${selected_emoji}`, poseX, poseY - w/1.4);
+          console.log(w/8, poseX, poseY);
+          var dataURL = document.querySelector(".photo-canvas").toDataURL();
+
+          //// 새 창 만들기 & 추가
+          const temp = document.createElement("div");
+          let n = Math.floor((Math.random() * 2))
+          temp.innerHTML = `<div class="sub-win-${n}">
+                              <div class="window-top">
+                                <img src="src/img/sub-win_btn_${n}.svg" alt="">
+                              </div>
+                              <div class="window-btm">
+                                <img src="${dataURL}" alt="">
+                                <img src="src/img/sub-win_scroll_${n}.svg" alt="">
+                              </div>
+                            </div>`
+          temp.setAttribute(
+            'style',
+            `left: ${Math.floor(( Math.random() * (innerWidth-320)))}px; top: ${Math.floor(( Math.random() * (innerHeight-240)))}px;`,
+          );
+          document.querySelector(".windows").append(temp);
+
+        }
+        imageObj.src = image_data_url;
+
+        //// 다음 촬영 준비
+        $('.timer').hide();
+        $('.main-cam').hide();
+        $('.emoji-picker').hide();
+        await _sleep(3000);
+        resetScreen();
       }
-
-      var context = photo.getContext('2d');
-      var imageObj = new Image();
-      
-      // 이모티콘 붙이기
-      imageObj.onload = function() {
-        context.textAlign = "center";
-        context.drawImage(imageObj, 0, 0);
-        context.font = `${w*8/19}px Calibri`;
-        context.fillText(`${selected_emoji}`, poseX, poseY - w/1.2);
-        console.log(w/2.2, poseX, poseY);
-        var dataURL = document.querySelector(".photo-canvas").toDataURL();
-
-        //// 새 창 만들기 & 추가
-        const temp = document.createElement("div");
-        let n = Math.floor((Math.random() * 2))
-        temp.innerHTML = `<div class="sub-win-${n}">
-                            <div class="window-top">
-                              <img src="src/img/sub-win_btn_${n}.svg" alt="">
-                            </div>
-                            <div class="window-btm">
-                              <img src="${dataURL}" alt="">
-                              <img src="src/img/sub-win_scroll_${n}.svg" alt="">
-                            </div>
-                          </div>`
-        temp.setAttribute(
-          'style',
-          `left: ${Math.floor(( Math.random() * (innerWidth-320)))}px; top: ${Math.floor(( Math.random() * (innerHeight-240)))}px;`,
-        );
-        document.querySelector(".windows").append(temp);
-
-      }
-      imageObj.src = image_data_url;
-
-      //// 다음 촬영 준비
-      $('.timer').hide();
-      $('.main-cam').hide();
-      $('.emoji-picker').hide();
-      await _sleep(3000);
-      resetScreen();
     };
     timecheck();
   }
