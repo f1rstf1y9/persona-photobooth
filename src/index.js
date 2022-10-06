@@ -74,7 +74,7 @@ function drawCameraIntoCanvas() {
     isShooting = true;
     $('.main-cam').show();
     const timecheck = async () => {
-      for (let i = 3; i != 0; i--) {
+      for (let i = 3; i != -1; i--) {
         await _sleep(1000);
         timer.textContent = i;
         timer.style.display = 'block';
@@ -100,7 +100,7 @@ function drawCameraIntoCanvas() {
         $('.photo-canvas').show();
 
         // 이모티콘 추가 대기
-        for (let i = 10; i != 0; i--) {
+        for (let i = 10; i != -1; i--) {
           await _sleep(1000);
           timer.textContent = i;
           timer.style.display = 'block';
