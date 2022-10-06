@@ -94,7 +94,7 @@ function drawCameraIntoCanvas() {
         current_pose = poses[0].pose;
         poseX = (current_pose.leftEye.x + current_pose.rightEye.x)/2;
         poseY = (current_pose.leftEye.y + current_pose.rightEye.y)/2;
-        w = dist(current_pose.leftEar.x,current_pose.leftEar.y,current_pose.rightEar.x,current_pose.rightEar.y);
+        w = dist(current_pose.leftEar.x,current_pose.rightEar.x,current_pose.leftEar.y,current_pose.rightEar.y);
         let image_data_url = photo.toDataURL('image/jpeg');
         $('.emoji-picker').fadeIn();
         $('.photo-canvas').show();
